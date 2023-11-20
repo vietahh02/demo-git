@@ -9,7 +9,8 @@ import (
 var tpl *template.Template
 
 func main() {
-	tpl, _ = template.ParseFiles("index.html", "home.html")
+	// tpl, _ = template.ParseFiles("index.html", "home.html")
+	tpl, _ = template.ParseGlob("*.html")
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/bye", bye)
