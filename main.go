@@ -15,7 +15,7 @@ var err error
 
 func main() {
 	tpl, _ = template.ParseGlob("*.html")
-	db, err = sql.Open("mysql", "root:1234567890@tcp(localhost:3306)/shopcart")
+	db, err = sql.Open("mysql", "root:1234567890@tcp(localhost:3306)/vietnam")
 	if err != nil {
 		fmt.Println(err)
 	}
