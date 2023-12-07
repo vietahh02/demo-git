@@ -21,7 +21,7 @@ func main() {
 	tpl, _ = tpl.ParseGlob("templates/*.html")
 	var err error
 	// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
-	db, err = sql.Open("mysql", "root:1234567890@tcp(localhost:3306)/shopcart")
+	db, err = sql.Open("mysql", "root:123@tcp(localhost:3306)/shopcart")
 	if err != nil {
 		panic(err.Error())
 	}
