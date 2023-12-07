@@ -35,7 +35,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func bye(w http.ResponseWriter, r *http.Request) {
-	row, _ := db.Query("SELECT name_en FROM vietnam.districts where code = '002'")
+	row, _ := db.Query("SELECT NameCate FROM shopcart.categories where idCate = '1'")
 	var name string
 	for row.Next() {
 		row.Scan(&name)
