@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
-	_ "github.com/gorilla/sessions"
 )
 
 var db *sql.DB
@@ -37,5 +36,5 @@ func main() {
 
 func home(w http.ResponseWriter, r *http.Request) {
 
-	tpl.ExecuteTemplate(w, "home.html", nil)
+	tpl.ExecuteTemplate(w, "1test.html", nil)
 }
