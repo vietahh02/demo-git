@@ -1,26 +1,44 @@
 package main
 
 import (
+	"database/sql"
+	"fmt"
 	"html/template"
-	"log"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var tpl *template.Template
+var db *sql.DB
+var err error
 
 func main() {
-	// tpl, _ = template.ParseFiles("index.html", "home.html")
 	tpl, _ = template.ParseGlob("*.html")
+	db, err = sql.Open("mysql", "root:1234567890@tcp(localhost:3306)/shopcart")
+	if err != nil {
+		fmt.Println(err)
+	}
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/bye", bye)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	http.ListenAndServe(":9990", nil)
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "index.html", nil)
+	row, _ := db.Query("SELECT name_en FROM vietnam.districts where code = '001'")
+	var name string
+	for row.Next() {
+		row.Scan(&name)
+	}
+	tpl.ExecuteTemplate(w, "index.html", name)
 }
 
 func bye(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "home.html", nil)
+	row, _ := db.Query("SELECT name_en FROM vietnam.districts where code = '002'")
+	var name string
+	for row.Next() {
+		row.Scan(&name)
+	}
+	tpl.ExecuteTemplate(w, "home.html", name)
 }
