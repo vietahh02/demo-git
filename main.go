@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	m "red/models"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -29,9 +30,11 @@ func main() {
 func hello(w http.ResponseWriter, r *http.Request) {
 	row, _ := db.Query("SELECT name_en FROM vietnam.districts where code = '001'")
 	var name string
+	var k m.Test
 	for row.Next() {
-		row.Scan(&name)
+		row.Scan(&k.Name)
 	}
+	name = k.Name
 	tpl.ExecuteTemplate(w, "index.html", name)
 }
 
