@@ -15,6 +15,7 @@ var err error
 
 func main() {
 	tpl, _ = template.ParseGlob("template/*.html")
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	db, err = sql.Open("mysql", "root:1234567890@tcp(localhost:3306)/vietnam")
 	if err != nil {
 		fmt.Println(err)
