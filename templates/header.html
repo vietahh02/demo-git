@@ -11,11 +11,11 @@
             <p>&nbsp;</p>
             <a href="/info-acc">My Account</a>
             <p></p>
-            <a href="#">Wishlist</a>
+            <a href="/">Wishlist</a>
             <p></p>
             <a href="/myOrder">My Orders</a>
             <p></p>
-            <a href="#">Checkout</a>
+            <a href="/">Checkout</a>
             <p></p>
             <a href="/loginCus" id="a">Login</a>
         </div>
@@ -24,7 +24,7 @@
             if (c != null) {
               a = c.split("/");
               document.getElementById('a').innerHTML = a[0];
-              document.getElementById('a').href = "#"
+              document.getElementById('a').href = "/"
             }
             function getCookie(name) {
               const cookies = document.cookie.split(';');
@@ -47,8 +47,8 @@
             <div class="cart">
                 <div><a href="/carts"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a></div>
                 <div class="my-money">
-                    <a href="#">TOTAL</a>
-                    <a href="#">$600.00</a>
+                    <a href="/">TOTAL</a>
+                    <a href="/">$600.00</a>
                 </div>
             </div>
         </div>
@@ -64,13 +64,13 @@
     </div>
     <div class="menu-categories">
       {{range $i, $e := .ListCate}}
-      <a href="#">{{$e.NameCate}}</a>
+      <a href="/">{{$e.NameCate}}</a>
       {{if eq $i 5}}{{break}}{{end}}
       {{end}}
     </div>
     <div class="info-cate">
       {{range .ListCate}}
-      <div><a href="#">{{.NameCate}}</a></div>
+      <div><a href="/">{{.NameCate}}</a></div>
       {{end}}
     </div>
   </div>
