@@ -43,7 +43,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	// send.ListCate = listCategories()
 	// send.F = "had"
 	// tpl.ExecuteTemplate(w, "header.html", send)
-	tpl.ExecuteTemplate(w, "1test.html", nil)
+	tpl.ExecuteTemplate(w, "index.html", nil)
 }
 
 // func listCategories() []Category {
